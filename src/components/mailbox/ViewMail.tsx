@@ -51,7 +51,7 @@ export default function ViewMail() {
             <p className="text-sm" style={{color: '#777'}}>08:26 PM (16 hours ago)</p>
           </div>
           <div className="text-sm my-4 leading-6" style={{color: '#333'}}>
-           <p>Subject: Lorem Ipsum has been the industry's standard dummy text ever</p>
+           <p>Subject: Lorem Ipsum has been the industry&apos;s standard dummy text ever</p>
            <p>From: <span className="text-blue-500 hover:text-red-600 cursor-pointer">example.@email.com</span></p>
            <p>Date: 14.10.2016</p>
           </div>

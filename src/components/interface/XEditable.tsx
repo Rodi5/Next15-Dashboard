@@ -12,7 +12,7 @@ const DatePicker = dynamic(() => import("react-datepicker"), {
 interface EditableData {
   id: number
   field: string
-  value: any
+  value: string | string[] | Date
   type: "text" | "select" | "date" | "datetime" | "tags" | "multiselect" | "textarea" | "checklist"
   options?: string[]
   required?: boolean
@@ -113,7 +113,7 @@ export default function XEditable() {
   } | null>(null)
 
   const [error, setError] = useState<string | null>(null)
-  const [editValue, setEditValue] = useState<any>(null)
+  const [editValue, setEditValue] = useState<string | string[] | Date | null>(null)
   const [showError, setShowError] = useState(false)
 
   const handleCellClick = (e: React.MouseEvent, item: EditableData) => {
@@ -130,7 +130,7 @@ export default function XEditable() {
     setShowError(item.field === "Select, error while loading")
   }
 
-  const handleSave = (value: any) => {
+  const handleSave = (value: string | string[] | Date) => {
     if (editingCell) {
       if (editingCell.item.required && !value) {
         setError("This field is required")
@@ -219,21 +219,27 @@ export default function XEditable() {
       case "textarea":
         return (
           <span className="border-b border-dashed border-[#428bca] hover:text-[#2a6496] cursor-pointer whitespace-pre-wrap">
-            {item.value}
+            {item.value.toString()}
           </span>
         )
       default:
         return (
-          <span className="border-b border-dashed border-[#428bca] hover:text-[#2a6496] cursor-pointer">
-            {item.value}
+          <span className="border-b border-dashed border-[#428bca] hover:text-[#2a6496] cursor-pointer break-words">
+            {item.value.toString()}
           </span>
         )
     }
   }
 
-  const renderEditControl = (item: EditableData, onSave: (value: any) => void, onClose: () => void) => {
+  const renderEditControl = (
+    item: EditableData,
+    onSave: (value: string | string[] | Date) => void,
+    onClose: () => void,
+  ) => {
     const handleSave = () => {
-      onSave(editValue)
+      if (editValue !== null) {
+        onSave(editValue)
+      }
       onClose()
     }
 
@@ -245,7 +251,9 @@ export default function XEditable() {
               {item.field === "Datepicker" ? "When you want vacation to start?" : "Select Date of birth"}
             </div>
             <DatePicker
-              selected={typeof editValue === "string" ? parseDate(editValue) : editValue}
+              selected={
+                typeof editValue === "string" ? parseDate(editValue) : editValue instanceof Date ? editValue : null
+              }
               onChange={(date: Date | null) => {
                 if (date) setEditValue(date)
               }}
@@ -282,7 +290,9 @@ export default function XEditable() {
           <div className="flex flex-col gap-2 bg-white p-4 rounded shadow-lg">
             <div className="text-lg font-semibold mb-2 text-[#428bca]">Setup event date and time</div>
             <DatePicker
-              selected={typeof editValue === "string" ? parseDateTime(editValue) : editValue}
+              selected={
+                typeof editValue === "string" ? parseDateTime(editValue) : editValue instanceof Date ? editValue : null
+              }
               onChange={(date: Date | null) => {
                 if (date) setEditValue(date)
               }}
@@ -329,7 +339,7 @@ export default function XEditable() {
             ) : (
               <>
                 <select
-                  value={editValue}
+                  value={typeof editValue === "string" ? editValue : ""}
                   onChange={(e) => setEditValue(e.target.value)}
                   className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
@@ -402,7 +412,7 @@ export default function XEditable() {
         return (
           <div className="flex flex-col gap-2">
             <textarea
-              value={editValue}
+              value={typeof editValue === "string" ? editValue : ""}
               onChange={(e) => setEditValue(e.target.value)}
               className="min-w-[200px] min-h-[100px] p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               autoFocus
@@ -429,7 +439,7 @@ export default function XEditable() {
           <div className="flex gap-2">
             <input
               type="text"
-              value={editValue}
+              value={typeof editValue === "string" ? editValue : ""}
               onChange={(e) => setEditValue(e.target.value)}
               className="max-w-[150px] px-2 py-1 border rounded outline-blue-600"
               autoFocus

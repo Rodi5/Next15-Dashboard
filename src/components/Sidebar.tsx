@@ -20,8 +20,20 @@ import {
   FaBars,
   FaPagelines,
 } from "react-icons/fa"
+import type { IconType } from "react-icons"
 
-const MenuItem = memo(({ icon: Icon, label, onClick, isOpen, children, isActive, hasSubmenu  }: any) => (
+interface MenuItemProps {
+  icon: IconType
+  label: string
+  onClick: () => void
+  isOpen: boolean
+  children?: React.ReactNode
+  isActive: boolean
+  hasSubmenu: boolean
+}
+
+
+const MenuItem: React.FC<MenuItemProps> = memo(({ icon: Icon, label, onClick, isOpen, children, isActive, hasSubmenu }) => (
   <li className={`hover:bg-gray-100 p-3 ${isActive ? "bg-blue-100" : ""}`}>
     <button onClick={onClick} className="hover:bg-gray-100 flex items-center justify-between w-full text-left">
       <a className="flex items-center">
@@ -38,6 +50,7 @@ const MenuItem = memo(({ icon: Icon, label, onClick, isOpen, children, isActive,
     {isOpen && children}
   </li>
 ))
+MenuItem.displayName = "MenuItem"
 
 const Sidebar = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null)
@@ -230,7 +243,6 @@ const Sidebar = () => {
                 isOpen={openMenu === item.label}
                 isActive={pathname === item.path}
                 hasSubmenu={!!item.submenu}
-                path={item.path}
               >
                 {item.submenu && (
                   <ul className="ml-4 mt-2 space-y-1">

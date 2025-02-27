@@ -7,7 +7,7 @@ interface CardProps {
     color: string;
 }
 
-const AnalysisProgress2: React.FC<CardProps> = ({ title, fees, grow, color }) => {
+const AnalysisProgress2: React.FC<CardProps> = ({ fees, grow, color }) => {
     return (
         <div className="p-4 bg-white">
             <div className='flex flex-col gap-1'>

@@ -1,7 +1,8 @@
 "use client"
 
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Filler } from "chart.js"
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, TooltipItem, Filler } from "chart.js"
 import { Line } from "react-chartjs-2"
+
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Filler)
@@ -53,7 +54,7 @@ export default function AdmissionCard({ title, value, data, color }: AdmissionCa
         displayColors: false,
         callbacks: {
           // Customize tooltip text
-          label: (context: any) => context.parsed.y,
+          label: (context: TooltipItem<"line">) => context.parsed.y,
           // Remove title
           title: () => "",
         },

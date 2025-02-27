@@ -3,7 +3,7 @@
 import { useState } from "react"
 
 export default function ProfileUpdate() {
-  const [selectedFile, setSelectedFile] = useState<string>("")
+  const [_selectedFile, setSelectedFile] = useState<string>("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

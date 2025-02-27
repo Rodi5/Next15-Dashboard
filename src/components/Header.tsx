@@ -8,7 +8,7 @@ import { FaBell, FaEnvelope, FaAngleDown, FaHome, FaUser, FaMoneyBill, FaCog, Fa
 import { FaCloud, FaEraser, FaChartLine, FaCheck } from "react-icons/fa6"
 
 // Memoized dropdown components
-const MessageDropdown = memo(({ isOpen, messages }: { isOpen: boolean; messages: any[] }) => {
+const MessageDropdown = memo(({ isOpen }: { isOpen: boolean }) => {
   if (!isOpen) return null
 
   return (
@@ -113,7 +113,7 @@ const MessageDropdown = memo(({ isOpen, messages }: { isOpen: boolean; messages:
 
 MessageDropdown.displayName = "MessageDropdown"
 
-const NotificationDropdown = memo(({ isOpen, notifications }: { isOpen: boolean; notifications: any[] }) => {
+const NotificationDropdown = memo(({ isOpen }: { isOpen: boolean }) => {
   if (!isOpen) return null
 
   return (
@@ -266,9 +266,7 @@ const Header = () => {
   }, [handleClickOutside])
 
   // Memoized toggle handlers
-  const toggleDropdown = useCallback((setter: React.Dispatch<React.SetStateAction<boolean>>) => {
-    setter((prev) => !prev)
-  }, [])
+  
 
   return (
     <div className="shadow-md lg:fixed top-0 left-52 right-0 h-16 z-20 bg-[#006DF0]">
@@ -342,7 +340,7 @@ const Header = () => {
                 <FaEnvelope size={24} className="text-white cursor-pointer" />
                 <span className="absolute -top-1 -right-2 inline-block h-1.5 w-1.5 bg-white rounded-full"></span>
               </button>
-              <MessageDropdown isOpen={messageOpen} messages={[]} />
+              <MessageDropdown isOpen={messageOpen} />
               <span className="absolute -top-1 -right-2 inline-block h-1.5 w-1.5 bg-white rounded-full"></span>
             </div>
 
@@ -352,7 +350,7 @@ const Header = () => {
                 <FaBell size={24} className="text-white cursor-pointer" />
                 <span className="absolute -top-1 right-0 inline-block h-1.5 w-1.5 bg-white rounded-full"></span>
               </button>
-              <NotificationDropdown isOpen={notificationOpen} notifications={[]} />
+              <NotificationDropdown isOpen={notificationOpen} />
               <span className="absolute -top-1 right-0 inline-block h-1.5 w-1.5 bg-white rounded-full"></span>
             </div>
 

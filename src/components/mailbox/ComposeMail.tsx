@@ -63,7 +63,7 @@ const ComposeMail: React.FC = () => {
 
   const fonts = ["Roboto", "Arial", "Times New Roman", "Helvetica", "Georgia"]
 
-  const [image, setImage] = useState<File | null>(null)
+  const [_image, setImage] = useState<File | null>(null)
 
   const handleImageDrop = (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault()

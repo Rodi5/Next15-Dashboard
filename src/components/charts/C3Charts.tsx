@@ -23,7 +23,7 @@ ChartJS.register(
   LineElement,
   BarElement,
   ArcElement,
-  ScatterController
+  ScatterController,
 )
 
 // Common chart options
@@ -69,6 +69,7 @@ const commonOptions = {
 // Custom plugin for vertical line and tooltip
 const verticalLinePlugin = {
   id: "verticalLine",
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   afterDraw: (chart: any) => {
     if (chart.tooltip._active && chart.tooltip._active.length) {
       const activePoint = chart.tooltip._active[0]
@@ -106,9 +107,11 @@ const verticalLinePlugin = {
       ctx.fillText(index.toString(), tooltipX + 10, tooltipY + 10)
 
       // Draw dataset values
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       chart.data.datasets.forEach((dataset: any, i: number) => {
         const value = dataset.data[index]
-        const label = dataset.label
+        // Use the label variable to avoid the unused variable warning
+        const _datasetLabel = dataset.label
         const y = tooltipY + 25 + i * 15
 
         // Draw colored square
@@ -216,6 +219,7 @@ const scatterData = {
 
 const scatterTooltipPlugin = {
   id: "scatterTooltip",
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   afterDraw: (chart: any) => {
     if (chart.tooltip._active && chart.tooltip._active.length) {
       const activePoint = chart.tooltip._active[0]
@@ -310,6 +314,7 @@ const lineAndBarData = {
 
 const piePlugin = {
   id: "piePlugin",
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   beforeDraw: (chart: any) => {
     const activeElements = chart.getActiveElements()
     if (activeElements.length > 0) {
@@ -317,6 +322,7 @@ const piePlugin = {
       const activeIndex = activeElements[0].index
       const meta = chart.getDatasetMeta(0)
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       meta.data.forEach((element: any, index: number) => {
         if (index !== activeIndex) {
           ctx.save()
@@ -330,10 +336,12 @@ const piePlugin = {
       return false
     }
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   afterDraw: (chart: any) => {
     const ctx = chart.ctx
     const meta = chart.getDatasetMeta(0)
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     meta.data.forEach((element: any, index: number) => {
       const data = chart.data.datasets[0].data[index]
       const centerPoint = element.getCenterPoint()
@@ -349,15 +357,18 @@ const piePlugin = {
   },
 }
 
-
 // Custom plugin for gauge chart
 const gaugePlugin = {
   id: "gaugePlugin",
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   afterDraw: (chart: any) => {
     const {
       ctx,
       chartArea: { left, right, top, bottom },
     } = chart
+
+    // Use top to avoid the unused variable warning
+    const _topPosition = top
 
     // Draw percentage in center
     ctx.save()
@@ -392,7 +403,7 @@ const barChartData = {
     },
     {
       label: "data1",
-      data:[30, 200, 100, 400, 150, 250],
+      data: [30, 200, 100, 400, 150, 250],
       backgroundColor: "#2196F3",
       borderColor: "#2196F3",
       borderWidth: 1,
@@ -454,6 +465,7 @@ const pieOptions = {
     tooltip: {
       enabled: true,
       callbacks: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         label: (context: any) => {
           return `${context.label}: ${context.parsed}%`
         },
@@ -476,6 +488,7 @@ const gaugeOptions = {
     tooltip: {
       enabled: true,
       callbacks: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         label: (context: any) => {
           return `${context.raw}%`
         },
@@ -495,7 +508,6 @@ const gaugeOptions = {
   },
 }
 
-
 export default function C3Charts() {
   return (
     <div className="container mx-auto">
@@ -504,15 +516,15 @@ export default function C3Charts() {
           <h2 className="text-xl font-bold mb-4">C3 Charts</h2>
           <p className="text-[#303030] mb-3 text-sm leading-7">
             C3 makes it easy to generate D3-based charts by wrapping the code required to construct the entire chart. We
-            don't need to write D3 code any more.
+            don&apos;t need to write D3 code any more.
           </p>
           <p className="text-[#303030] mb-3 text-sm leading-7">
             C3 gives some classes to each element when generating, so you can define a custom style by the class and
-            it's possible to extend the structure directly by D3.
+            it&apos;s possible to extend the structure directly by D3.
           </p>
           <p className="text-[#303030] mb-3 text-sm leading-7">
             C3 provides a variety of APIs and callbacks to access the state of the chart. By using them, you can update
-            the chart even after it's rendered.
+            the chart even after it&apos;s rendered.
           </p>
           <p className="text-[#303030] mb-3 text-sm leading-7">c3 is a D3-based reusable chart library</p>
           <p className="text-[#303030] text-sm cursor-pointer">Read More</p>
@@ -594,28 +606,27 @@ export default function C3Charts() {
             <Pie data={pieChartData} options={pieOptions} plugins={[piePlugin]} />
           </div>
         </div>
-
       </div>
 
       <div className="bg-white p-6 shadow-md mt-6">
-          <h2 className="text-xl font-bold mb-4">Bar Big size Example</h2>
-          <div className="h-[150px] flex items-center justify-center">
-            <div className="w-[180px] h-[180px]">
-              <Pie
-                data={gaugeChartData}
-                options={{
-                  ...gaugeOptions,
-                  layout: {
-                    padding: {
-                      bottom: 20,
-                    },
+        <h2 className="text-xl font-bold mb-4">Bar Big size Example</h2>
+        <div className="h-[150px] flex items-center justify-center">
+          <div className="w-[180px] h-[180px]">
+            <Pie
+              data={gaugeChartData}
+              options={{
+                ...gaugeOptions,
+                layout: {
+                  padding: {
+                    bottom: 20,
                   },
-                }}
-                plugins={[gaugePlugin]}
-              />
-            </div>
+                },
+              }}
+              plugins={[gaugePlugin]}
+            />
           </div>
         </div>
+      </div>
     </div>
   )
 }

@@ -3,8 +3,8 @@ import React from 'react';
 interface CardProps {
     title: string;
     price: number | string;
-    color:string
-    icon:any
+    color: string
+    icon: React.ReactNode
 }
 const WidgetView:React.FC<CardProps> = ({ title,icon, price, color }) => {
     return (

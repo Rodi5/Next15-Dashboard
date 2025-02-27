@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import ProfessorsAccount from '../professors/ProfessorsAccount'
 import ProfessorsSocial from '../professors/ProfessorsSocial'
+import Image from 'next/image'
 
 export default function EditLibrary() {
     const [activeTab, setActiveTab] = useState('basic')
@@ -50,6 +51,12 @@ export default function EditLibrary() {
                   </p>
                 </div>
               </div>
+              {image && (
+                <div className="mt-4 flex flex-col items-center">
+                  <p className="text-sm text-gray-500">Selected Image:</p>
+                  <Image width={128} height={128} src={URL.createObjectURL(image)} alt="Selected" className="mt-2 w-32 h-32 object-cover rounded shadow-lg"/>
+                </div>
+              )}
             </div>
 
             <div className="space-y-3 sm:space-y-4">

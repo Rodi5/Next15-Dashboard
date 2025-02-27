@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import Cropper, { ReactCropperElement } from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
+import Image from 'next/image';
 
 const ImageCropper = () => {
   const cropperRef = useRef<ReactCropperElement>(null);
@@ -99,7 +100,7 @@ const ImageCropper = () => {
           {croppedImage && (
             <div className="mt-4 text-center">
               <h2 className="text-xl font-semibold mb-2">Preview</h2>
-              <img src={croppedImage} alt="Cropped Preview" className="rounded shadow-md mx-auto w-52 h-28 object-contain" />
+              <Image width={208} height={112} src={croppedImage} alt="Cropped Preview" className="rounded shadow-md mx-auto w-52 h-28 object-contain" />
             </div>
           )}
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">

@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import { Chart as ChartJS, ArcElement, Tooltip, TooltipItem, Legend } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
@@ -65,8 +65,8 @@ function SinglePieChart({ title, value1, value2, color }: ChartData) {
       tooltip: {
         enabled: true,
         callbacks: {
-          label: function (context: any) {
-            const value = context.raw
+          label: function (tooltipItem: TooltipItem<'pie'>) {
+            const value = tooltipItem.raw as number
             const percentage = ((value / total) * 100).toFixed(2)
             return `${value} (${percentage}%)`
           },

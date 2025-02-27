@@ -4,6 +4,7 @@ import { useState, lazy, Suspense } from "react"
 import "react-datepicker/dist/react-datepicker.css";
 import ProfessorsAccount from './ProfessorsAccount'
 import ProfessorsSocial from './ProfessorsSocial'
+import Image from "next/image";
 const DatePicker = lazy(() => import("react-datepicker"))
 
 const CustomInput = ({
@@ -101,6 +102,12 @@ export default function BasicInformationForm() {
                   </p>
                 </div>
               </div>
+              {image && (
+                <div className="mt-4 flex flex-col items-center">
+                  <p className="text-sm text-gray-500">Selected Image:</p>
+                  <Image width={128} height={128} src={URL.createObjectURL(image)} alt="Selected" className="mt-2 w-32 h-32 object-cover rounded shadow-lg"/>
+                </div>
+              )}
             </div>
 
             <div className="space-y-3 sm:space-y-4">

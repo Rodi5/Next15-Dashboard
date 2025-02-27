@@ -1,6 +1,6 @@
 "use client"
 
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartOptions } from "chart.js"
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, TooltipItem, Legend, ChartOptions } from "chart.js"
 import { Bar } from "react-chartjs-2"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
@@ -87,10 +87,10 @@ export default function UniversityEarningsBarChart() {
           size: 13,
         },
         callbacks: {
-          title: (items: any) => {
-            return items[0].label
+          title: (items: TooltipItem<"bar">[]) => {
+            return items[0]?.label || ""
           },
-          label: (context: any) => {
+          label: (context: TooltipItem<"bar">) => {
             return `${context.dataset.label} : ${context.parsed.y}`
           },
         },

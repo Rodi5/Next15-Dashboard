@@ -152,7 +152,11 @@ export default function SparklineCharts() {
     plugins: {
       tooltip: {
         callbacks: {
-          label: (context: any) => {
+          label: (context: {
+            label?: string
+            parsed: number
+            dataset: { data: number[] }
+          }) => {
             const label = context.label || ""
             const value = context.parsed
             const total = context.dataset.data.reduce((a: number, b: number) => a + b, 0)
@@ -184,7 +188,11 @@ export default function SparklineCharts() {
       },
       tooltip: {
         callbacks: {
-          label:  (context: any) => {context.parsed.y},
+          label: (context: {
+            parsed: { y: number }
+          }) => {
+            return `Value: ${context.parsed.y}`
+          },
         },
       },
     },
@@ -219,7 +227,11 @@ export default function SparklineCharts() {
       },
       tooltip: {
         callbacks: {
-          label: (context: any) => {context.parsed.y},
+          label: (context: {
+            parsed: { y: number }
+          }) => {
+            return `Value: ${context.parsed.y}`
+          },
         },
       },
     },

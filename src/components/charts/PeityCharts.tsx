@@ -179,7 +179,7 @@ export default function PeityCharts() {
       <div className="flex flex-col md:flex-row gap-6">
         <div className="bg-white shadow-lg p-6 w-full md:max-w-sm self-start">
             <h2 className="text-[#333] font-bold text-xl">Peity Charts</h2>
-            <p className="text-sm text-[#303030] my-3 leading-7">Peity (sounds like deity) is a jQuery plugin that converts an element's content into a angle svg mini pie donut line or bar chart and is compatible with any browser that supports angle svg: Chrome, Firefox, IE9+, Opera, Safari.</p>
+            <p className="text-sm text-[#303030] my-3 leading-7">Peity (sounds like deity) is a jQuery plugin that converts an element&apos;s content into a angle svg mini pie donut line or bar chart and is compatible with any browser that supports angle svg: Chrome, Firefox, IE9+, Opera, Safari.</p>
             <p className="text-sm text-[#303030] my-3 leading-7">Passing a radius will set the correct width and height, the pie will always be a circle that fits the available space.</p>
             <button className="text-sm text-[#303030]">Read More</button>
         </div>
@@ -199,7 +199,7 @@ export default function PeityCharts() {
                                 <Pie data={pieData1} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="pie"&gt;1/6&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;pie&quot;&gt;1/6&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -207,7 +207,7 @@ export default function PeityCharts() {
                                 <Pie data={pieData2} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="pie"&gt;230/260&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;pie&quot;&gt;230/260&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -215,7 +215,7 @@ export default function PeityCharts() {
                                 <Pie data={pieData3} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="pie"&gt;0.42/1.461&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;pie&quot;&gt;0.42/1.461&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -223,7 +223,7 @@ export default function PeityCharts() {
                                 <Pie data={pieData4} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="pie"&gt;2,7&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;pie&quot;&gt;2,7&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -231,7 +231,7 @@ export default function PeityCharts() {
                                 <Pie data={pieData5} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="pie"&gt;236,133&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;pie&quot;&gt;236,133&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -239,7 +239,7 @@ export default function PeityCharts() {
                                 <Pie data={pieData6} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="pie"&gt;0.42,1.051&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;pie&quot;&gt;0.42,1.051&lt;/span&gt;</pre></td>
                     </tr>
                 </tbody>
             </table>
@@ -261,7 +261,7 @@ export default function PeityCharts() {
                                 <Line data={peityData1} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="line"&gt;2,5,9,6,5,9,7,3,5,2,5,3,9,6,5,8,7,8,5,2&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;line&quot;&gt;2,5,9,6,5,9,7,3,5,2,5,3,9,6,5,8,7,8,5,2&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -269,7 +269,7 @@ export default function PeityCharts() {
                                 <Line data={peityData2} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="line"&gt;8,5,2,-1,-3,-2,8,3,5,3&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;line&quot;&gt;8,5,2,-1,-3,-2,8,3,5,3&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -277,7 +277,7 @@ export default function PeityCharts() {
                                 <Line data={peityData3} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="line"&gt;0,-5,-6,-4,-5,-4,-7,-3,-3,-5&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;line&quot;&gt;0,-5,-6,-4,-5,-4,-7,-3,-3,-5&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -285,7 +285,7 @@ export default function PeityCharts() {
                                 <Bar data={peityBarData1} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="bar"&gt;5,3,9,6,5,9,7,3,5,2&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;bar&quot;&gt;5,3,9,6,5,9,7,3,5,2&lt;/span&gt;</pre></td>
                     </tr>
                     <tr className="border">
                         <td className="px-4 py-1 border">
@@ -293,7 +293,7 @@ export default function PeityCharts() {
                                 <Bar data={peityBarData2} options={peityOptions} />
                             </div>
                         </td>
-                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class="bar"&gt;5,3,2,-1,-3,-2,2,3,5,2&lt;/span&gt;</pre></td>
+                        <td className="px-4 py-1 text-sm"><pre className="text-[#c7254e] bg-[#f9f2f4] w-fit px-2 rounded-sm">&lt;span class=&quot;bar&quot;&gt;5,3,2,-1,-3,-2,2,3,5,2&lt;/span&gt;</pre></td>
                     </tr>
                 </tbody>
             </table>
@@ -301,4 +301,3 @@ export default function PeityCharts() {
       </div>
   )
 }
-

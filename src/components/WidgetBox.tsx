@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface CardProps {
-    color:string
-    icon:any
+    color: string
+    icon: React.ReactNode
 }
 const WidgetBox:React.FC<CardProps> = ({ icon, color}) => {
     return (
