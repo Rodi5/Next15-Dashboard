@@ -54,7 +54,7 @@ export default function AdmissionCard({ title, value, data, color }: AdmissionCa
         displayColors: false,
         callbacks: {
           // Customize tooltip text
-          label: (context: TooltipItem<"line">) => context.parsed.y,
+          label: (context: TooltipItem<"line">) => `Value: ${context.parsed.y}`,
           // Remove title
           title: () => "",
         },
