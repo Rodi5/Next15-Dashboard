@@ -4,10 +4,13 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import dynamic from "next/dynamic"
 import "react-datepicker/dist/react-datepicker.css"
+import { FC } from "react";
+import { DatePickerProps } from "react-datepicker";
 
-const DatePicker = dynamic(() => import("react-datepicker"), {
+
+const DatePicker = dynamic(() => import("react-datepicker").then((mod) => mod.default) as unknown as Promise<FC<DatePickerProps>>, {
   ssr: false,
-})
+});
 
 interface EditableData {
   id: number
