@@ -31,7 +31,7 @@ const commonOptions = {
   responsive: true,
   maintainAspectRatio: false,
   interaction: {
-    mode: "index",
+    mode: "index" as const,
     intersect: false,
   },
   scales: {
