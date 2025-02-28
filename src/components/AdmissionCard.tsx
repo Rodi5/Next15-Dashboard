@@ -46,7 +46,6 @@ export default function AdmissionCard({ title, value, data, color }: AdmissionCa
         bodyColor: "#333",
         bodyFont: {
           size: 14,
-          // weight: "500",
         },
         padding: 8,
         borderColor: "rgba(0,0,0,0.1)",

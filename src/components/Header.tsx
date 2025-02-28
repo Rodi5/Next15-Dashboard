@@ -265,8 +265,6 @@ const Header = () => {
     }
   }, [handleClickOutside])
 
-  // Memoized toggle handlers
-  
 
   return (
     <div className="shadow-md lg:fixed top-0 left-52 right-0 h-16 z-20 bg-[#006DF0]">

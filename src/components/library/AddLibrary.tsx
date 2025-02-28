@@ -5,7 +5,6 @@ import ProfessorsSocial from '../professors/ProfessorsSocial'
 import Image from 'next/image'
 
 
-
 export default function AddLibrary() {
     const [activeTab, setActiveTab] = useState('basic')
     const [image, setImage] = useState<File | null>(null)
